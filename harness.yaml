@@ -25,7 +25,7 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: account.harnessImage
-                    repo: " https://registry.hub.docker.com"
+                    repo: https://index.docker.io/v1/
                     tags:
                       - app=nginx
           infrastructure:
