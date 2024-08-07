@@ -28,16 +28,13 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
+                  type: BuildAndPushECR
+                  name: BuildAndPushECR_1
+                  identifier: BuildAndPushECR_1
                   spec:
                     connectorRef: AWS
-                    image: ubuntu:latest
-                    shell: Sh
-                    command: |-
-                      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-                      unzip awscliv2.zip
-                      sudo ./aws/install
-                       aws sts assume-role --role-arn arn:aws:iam::058264202818:role/harness --role-session-name test --region us-east-1
-                       aws sts get-caller-identity
+                    region: us-east-1
+                    account: "058264202818"
+                    imageName: 058264202818.dkr.ecr.us-east-1.amazonaws.com/nginx
+                    tags:
+                      - app
