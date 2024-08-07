@@ -28,13 +28,11 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: BuildAndPushECR
-                  name: BuildAndPushECR_1
-                  identifier: BuildAndPushECR_1
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    connectorRef: AWS
-                    region: us-east-1
-                    account: "058264202818"
-                    imageName: 058264202818.dkr.ecr.us-east-1.amazonaws.com/nginx
+                    connectorRef: account.harnessImage
+                    repo: " https://registry.hub.docker.com"
                     tags:
-                      - app
+                      - app=nginx
