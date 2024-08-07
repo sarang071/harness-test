@@ -35,6 +35,6 @@ pipeline:
                     connectorRef: AWS
                     region: us-east-1
                     account: "058264202818"
-                    imageName: nginx:latest
+                    imageName: 058264202818.dkr.ecr.ap-south-1.amazonaws.com/nginx
                     tags:
                       - app
